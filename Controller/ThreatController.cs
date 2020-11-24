@@ -15,15 +15,16 @@ namespace LABA_2.Controller
     public static class ThreatController
     {
         public static ObservableCollection<ThreatShortForm> ThreatCollection { get; private set; } = new ObservableCollection<ThreatShortForm>();
-        public static DateTime LastUpdate { get; set; }
 
 
         public static void DownloadXLSX()
         {
-            /*using (var wc = new WebClient())
+            using (var wc = new WebClient())
             {
                 wc.DownloadFile(Config.XLSXAddress, Config.PathToXLSX);
-            }*/
+            }
+
+            ThreatCollection.Clear();
 
             using (var fs = new FileStream(Config.PathToXLSX, FileMode.Open))
             {
@@ -56,14 +57,13 @@ namespace LABA_2.Controller
 
                         SaveToJSON();
 
-                        LastUpdate = DateTime.Now;
+                        Config.LastUpdate = DateTime.Now;
 
                     }
                 }
             }
 
         }
-
         private static bool GetBoolean(string request)
         {
             return request == "1";
@@ -74,15 +74,35 @@ namespace LABA_2.Controller
             File.WriteAllText(Config.PathToJSON, serialized);
         }
 
-        public static ObservableCollection<Threat> Update()
+        public static void InitializeViaJSON()
         {
-         
             var collection = JsonConvert.DeserializeObject<Threat[]>(File.ReadAllText(Config.PathToJSON));
+
+            ThreatCollection = new ObservableCollection<ThreatShortForm>(collection.Select(x => new ThreatShortForm(x)));
+
+        }
+        public static ObservableCollection<UpdateResult> Update()
+        {
+            var res = new ObservableCollection<UpdateResult>();
             
+            var oldCollection = JsonConvert.DeserializeObject<Threat[]>(File.ReadAllText(Config.PathToJSON));
+            DownloadXLSX();
 
-            var res = new ObservableCollection<Threat>(collection);
+            foreach (var oldThreat in oldCollection)
+            {
+                var toCompare = ThreatCollection.Where(x => x.Id == oldThreat.Id).FirstOrDefault();
+
+
+                foreach (var compareRes in oldThreat.CompareThreats(toCompare.GetSource()))
+                {
+                    res.Add(compareRes);
+                }
+            }
+
+            Config.LastUpdate = DateTime.Now;
+            Config.SaveConfiguration();
+           
             return res;
-
         }
     }
 }

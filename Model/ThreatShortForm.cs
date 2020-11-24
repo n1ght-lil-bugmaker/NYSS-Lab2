@@ -21,12 +21,7 @@ namespace LABA_2.Model
             _source = threat;
         }
 
-        [JsonConstructor]
-        public ThreatShortForm(int Id, string Name)
-        {
-            this.Id = Id;
-            this.Name = Name;
-        }
+        
 
         public Threat GetSource()
         {

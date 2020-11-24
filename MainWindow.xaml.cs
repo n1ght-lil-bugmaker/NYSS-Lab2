@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LABA_2.Controller;
 using LABA_2.Model;
+using System.IO;
 
 namespace LABA_2
 {
@@ -29,10 +30,18 @@ namespace LABA_2
 
             try
             {
-                ThreatController.DownloadXLSX();
+                if(!File.Exists(Config.PathToXLSX))
+                {
+                    new StartPage().ShowDialog();
+                }
+                else
+                {
+                    ThreatController.InitializeViaJSON();
+                }
+                
                 Table.ItemsSource = ThreatController.ThreatCollection;
                 ShowFullButton.Click += GetFullInfo;
-                LastUpdateLabel.Content = ThreatController.LastUpdate.ToString("dd.MM.yyyy");
+                LastUpdateLabel.Content = Config.LastUpdate.ToString("dd.MM.yyyy HH:mm");
                 UpdateButton.Click += UpdateClick;
 
                 SettingsButton.Click += (sender, args) =>
@@ -98,6 +107,7 @@ namespace LABA_2
 
                 var updatePage = new UpdatePage();
                 updatePage.UpdatedTable.ItemsSource = updateCollection;
+                LastUpdateLabel.Content = Config.LastUpdate.ToString("dd.MM.yyyy HH:mm");
 
                 updatePage.ShowDialog();
             }
