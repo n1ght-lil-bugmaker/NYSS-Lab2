@@ -1,0 +1,31 @@
+﻿<Window x:Class="LABA_2.Model.ShowFullThreat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LABA_2.Model"
+        mc:Ignorable="d"
+        Title="ShowFullThreat" Height="384" Width="531.2">
+    <Grid Margin="0,12,17.6,18">
+        <Label Content="ID:" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+        <Label Content="Название:" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top"/>
+        <Label Content="Источники:" HorizontalAlignment="Left" Margin="10,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Объект воздействия:" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top"/>
+        <Label Content="Нарушение конфиденциальности:" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top"/>
+        <Label Content="Нарушение целостности:" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="Нарушение доступности:" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top"/>
+        <Label Content="Дата внесения в БДУ:" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top"/>
+        <Label Content="Дата последнего обновления в БДУ:" HorizontalAlignment="Left" Margin="10,249,0,0" VerticalAlignment="Top"/>
+        <Label Name="IDLabel" Content="" HorizontalAlignment="Left" Margin="39,7,0,0" VerticalAlignment="Top"/>
+        <Label Name="NameLabel" Content="" HorizontalAlignment="Left" Margin="81,38,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="SourceLabel" Content="" HorizontalAlignment="Left" Margin="89,63,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ObjectLabel" Content="" HorizontalAlignment="Left" Margin="137,94,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="ConfidentialLabel" Content="" HorizontalAlignment="Left" Margin="210,125,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="IntegrityLabel" Content="" HorizontalAlignment="Left" Margin="166,156,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="AvailabilityLabel" Content="" HorizontalAlignment="Left" Margin="164,187,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="IncludeDateLabel" Content="" HorizontalAlignment="Left" Margin="140,218,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LastUpdateLabel" Content="" HorizontalAlignment="Left" Margin="222,249,0,0" VerticalAlignment="Top"/>
+        <Button Name ="GetFullDescription"  Content="Хачю полное описание" HorizontalAlignment="Left" Margin="10,280,0,0" VerticalAlignment="Top" Width="198" Height="32"/>
+
+    </Grid>
+</Window>
