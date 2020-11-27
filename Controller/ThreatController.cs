@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using ExcelDataReader;
 using System.IO;
 using Newtonsoft.Json;
+using System.Timers;
 
 namespace LABA_2.Controller
 {
     public static class ThreatController
     {
+        
         public static ObservableCollection<ThreatShortForm> ThreatCollection { get; private set; } = new ObservableCollection<ThreatShortForm>();
 
 

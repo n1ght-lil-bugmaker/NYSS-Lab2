@@ -62,6 +62,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\PageController.cs" />
+    <Compile Include="Model\FieldAttribute.cs" />
     <Compile Include="Model\UpdateResult.cs" />
     <Compile Include="FullDescription.xaml.cs">
       <DependentUpon>FullDescription.xaml</DependentUpon>

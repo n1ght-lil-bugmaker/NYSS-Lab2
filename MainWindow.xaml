@@ -29,6 +29,9 @@
         <Button x:Name="FindButton" Content="Найти" HorizontalAlignment="Left" Margin="932,0,0,0" VerticalAlignment="Top" Width="75" Height="20"/>
         <Button x:Name="RefreshButton" Content="Вернуть" HorizontalAlignment="Left" Margin="852,1,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Name="UpdateButton" Content="Обновить" HorizontalAlignment="Left" Margin="205,2,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Name="PageBack" Content="Назад" HorizontalAlignment="Left" Margin="616,4,0,0" VerticalAlignment="Top" Width="39" Height="19"/>
+        <Button Name="PageForward" Content="Вперед" HorizontalAlignment="Left" Margin="703,3,0,0" VerticalAlignment="Top" Width="43" Height="20"/>
+        <Label Name="PageInfo" Content="Label" HorizontalAlignment="Left" Margin="660,1,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

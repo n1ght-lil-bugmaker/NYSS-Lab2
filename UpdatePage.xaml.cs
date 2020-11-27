@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LABA_2.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,36 @@ namespace LABA_2
     /// </summary>
     public partial class UpdatePage : Window
     {
-        public UpdatePage()
+
+        IEnumerable<UpdateResult> _collection;
+        public UpdatePage(IEnumerable<UpdateResult> updates)
         {
             InitializeComponent();
+            _collection = updates;
+            UpdatedTable.ItemsSource = _collection;
+
+
+            UpdatedCountLabel.Content = CountUpdated();
+            ResultLabel.Content = "Успешно";
+            OK.Click += (sender, args) =>
+            {
+                Close();
+            };
+        }
+
+        private int CountUpdated()
+        {
+            var IDs = new List<int>();
+
+            foreach(UpdateResult updated in _collection)
+            {
+                if(!IDs.Contains(updated.Id))
+                {
+                    IDs.Add(updated.Id);
+                }
+            }
+
+            return IDs.Count;
         }
     }
 }

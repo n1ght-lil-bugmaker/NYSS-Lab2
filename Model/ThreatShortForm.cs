@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace LABA_2.Model
     public class ThreatShortForm
     {
         public int Id { get; }
+
         public string Name { get; }
 
         private Threat _source;
