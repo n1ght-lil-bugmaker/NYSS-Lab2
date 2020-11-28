@@ -22,19 +22,25 @@ namespace LABA_2
     {
 
         IEnumerable<UpdateResult> _collection;
-        public UpdatePage(IEnumerable<UpdateResult> updates)
+        public UpdatePage(IEnumerable<UpdateResult> updates, string updateStatus)
         {
             InitializeComponent();
             _collection = updates;
             UpdatedTable.ItemsSource = _collection;
-
+            Full.Click += GetUpdatePage;
 
             UpdatedCountLabel.Content = CountUpdated();
-            ResultLabel.Content = "Успешно";
+            ResultLabel.Content = updateStatus;
             OK.Click += (sender, args) =>
             {
                 Close();
             };
+        }
+
+        public UpdatePage(string updateStaus)
+        {
+            InitializeComponent();
+            ResultLabel.Content = updateStaus;
         }
 
         private int CountUpdated()
@@ -50,6 +56,18 @@ namespace LABA_2
             }
 
             return IDs.Count;
+        }
+
+        private void GetUpdatePage(object seder, EventArgs args)
+        {
+            if(UpdatedTable.SelectedItem != null)
+            {
+                new FullUpdateInfo(UpdatedTable.SelectedItem as UpdateResult).Show();
+            }
+            else
+            {
+                MessageBox.Show("А выделять кто будет?");
+            }
         }
     }
 }

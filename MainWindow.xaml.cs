@@ -146,14 +146,17 @@ namespace LABA_2
             {
                 var updateCollection = ThreatController.Update();
 
-                var updatePage = new UpdatePage(updateCollection);
+                var updatePage = new UpdatePage(updateCollection, "Успешно!");
                 LastUpdateLabel.Content = Config.LastUpdate.ToString("dd.MM.yyyy HH:mm");
 
                 updatePage.ShowDialog();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + ex.StackTrace, ex.Source);
+                var p = new UpdatePage($"Ошибка обновления ({ex.Message})");
+                p.Title = "Ошибка обновления";
+                p.ShowDialog();
+
             }
         }
         public void AutomaticUpdate(object sender, EventArgs args)
@@ -161,7 +164,7 @@ namespace LABA_2
             try
             {
                 var updatedCollection = ThreatController.Update();
-                var updatedPage = new UpdatePage(updatedCollection);
+                var updatedPage = new UpdatePage(updatedCollection, "Успешно");
 
                 updatedPage.Title = "Автообновление";
                 updatedPage.UpdatedTable.ItemsSource = updatedCollection;
@@ -173,8 +176,10 @@ namespace LABA_2
             }
             catch (Exception ex)
             {
-                
-                MessageBox.Show(ex.Message + ex.StackTrace, ex.Source);
+
+                var p = new UpdatePage($"Ошибка автообновления ({ex.Message})");
+                p.Title = "Ошибка автообновления";
+                p.ShowDialog();
             }
             finally
             {

@@ -11,15 +11,12 @@
             <ColumnDefinition Width="669*"/>
             <ColumnDefinition Width="125*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Name="Table" Margin="13,26,22.2,22.4" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" >
-            <DataGrid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.007"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </DataGrid.RenderTransform>
+        <DataGrid Name="Table" Margin="13,26,22.2,22.4" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" AutoGenerateColumns="False" CanUserResizeColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="30" Header="ID" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Width="*" Header="Название" Binding="{Binding Path=Name}"/>
+            </DataGrid.Columns>
+            
         </DataGrid>
         <Button Name="ShowFullButton" Content="Полностью" HorizontalAlignment="Left" Margin="125,2,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Последнее обновление: " HorizontalAlignment="Left" Margin="290,-1,0,0" VerticalAlignment="Top"/>

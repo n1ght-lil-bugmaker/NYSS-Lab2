@@ -63,6 +63,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\PageController.cs" />
+    <Compile Include="FullUpdateInfo.xaml.cs">
+      <DependentUpon>FullUpdateInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\FieldAttribute.cs" />
     <Compile Include="Model\UpdateResult.cs" />
     <Compile Include="FullDescription.xaml.cs">
@@ -78,6 +81,10 @@
       <DependentUpon>UpdatePage.xaml</DependentUpon>
     </Compile>
     <Page Include="FullDescription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FullUpdateInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

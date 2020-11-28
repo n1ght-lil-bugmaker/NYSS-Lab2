@@ -7,12 +7,20 @@
         mc:Ignorable="d"
         Title="UpdatePage" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="UpdatedTable" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="494"/>
+        <DataGrid Name="UpdatedTable" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="494" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" Width="30"/>
+                <DataGridTextColumn Header="Измененное поле" Binding="{Binding Path=Field}" Width="*"/>
+                <DataGridTextColumn Header="Старое значение" Binding="{Binding Path=PreviousValue}" Width="*"/>
+                <DataGridTextColumn Header="Новое значение" Binding="{Binding Path=CurrentValue}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button  Name="OK" Content="OK" HorizontalAlignment="Left" Margin="597,391,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Результат: " HorizontalAlignment="Left" Margin="522,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Количество обновленных записей: " HorizontalAlignment="Left" Margin="522,36,0,0" VerticalAlignment="Top"/>
         <Label Name="ResultLabel" Content="Label" HorizontalAlignment="Left" Margin="591,10,0,0" VerticalAlignment="Top"/>
         <Label Name="UpdatedCountLabel" Content="Label" HorizontalAlignment="Left" Margin="727,36,0,0" VerticalAlignment="Top"/>
+        <Button Name="Full" Content="Полностью" HorizontalAlignment="Left" Margin="690,391,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
