@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="UpdatePage" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="UpdatedTable" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="494" AutoGenerateColumns="False">
+        <DataGrid Name="UpdatedTable" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="494" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" Width="30"/>
                 <DataGridTextColumn Header="Измененное поле" Binding="{Binding Path=Field}" Width="*"/>

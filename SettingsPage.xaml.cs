@@ -36,11 +36,17 @@ namespace LABA_2
                     Config.PathToXLSX = ExcelPath.Text;
                     Config.PathToJSON = JSONPAth.Text;
                     Config.XLSXAddress = FilePath.Text;
-                    Config.UpdateInterval = new TimeSpan(0, int.Parse(Interval.Text), 0, 0);
-
-                    Config.SaveConfiguration();
-
-                    Close();
+                    int t;
+                    if (!int.TryParse(Interval.Text, out t) || t <= 0)
+                    {
+                        MessageBox.Show("Некорректные данные!", "Пепе", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else
+                    {
+                        Config.UpdateInterval = new TimeSpan(0, t, 0, 0);
+                        Config.SaveConfiguration();
+                        Close();
+                    }                   
                 };
             }
             catch(Exception ex)
